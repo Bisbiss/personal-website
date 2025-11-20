@@ -1,5 +1,4 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 const SEO = ({
     title,
@@ -10,51 +9,76 @@ const SEO = ({
     type = 'website',
     author = 'Bisri Mustofa'
 }) => {
-    const siteUrl = window.location.origin;
-    const currentUrl = url || window.location.href;
-    const defaultImage = `${siteUrl}/og-image.jpg`; // You can create this later
-    const ogImage = image || defaultImage;
+    useEffect(() => {
+        const siteUrl = window.location.origin;
+        const currentUrl = url || window.location.href;
+        const defaultImage = `${siteUrl}/og-image.jpg`;
+        const ogImage = image || defaultImage;
 
-    // Default values
-    const siteTitle = 'Bisbiss | Bisri Mustofa';
-    const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-    const defaultDescription = 'Portfolio of Bisri Mustofa, a tech enthusiast and developer specializing in modern web technologies.';
-    const metaDescription = description || defaultDescription;
-    const defaultKeywords = 'Bisri Mustofa, Bisbiss, web developer, portfolio, tech enthusiast, React, JavaScript, full-stack developer';
-    const metaKeywords = keywords || defaultKeywords;
+        // Default values
+        const siteTitle = 'Bisbiss | Bisri Mustofa';
+        const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+        const defaultDescription = 'Portfolio of Bisri Mustofa, a tech enthusiast and developer specializing in modern web technologies.';
+        const metaDescription = description || defaultDescription;
+        const defaultKeywords = 'Bisri Mustofa, Bisbiss, web developer, portfolio, tech enthusiast, React, JavaScript, full-stack developer';
+        const metaKeywords = keywords || defaultKeywords;
 
-    return (
-        <Helmet>
-            {/* Primary Meta Tags */}
-            <title>{fullTitle}</title>
-            <meta name="title" content={fullTitle} />
-            <meta name="description" content={metaDescription} />
-            <meta name="keywords" content={metaKeywords} />
-            <meta name="author" content={author} />
-            <link rel="canonical" href={currentUrl} />
+        // Update document title
+        document.title = fullTitle;
 
-            {/* Open Graph / Facebook */}
-            <meta property="og:type" content={type} />
-            <meta property="og:url" content={currentUrl} />
-            <meta property="og:title" content={fullTitle} />
-            <meta property="og:description" content={metaDescription} />
-            <meta property="og:image" content={ogImage} />
-            <meta property="og:site_name" content={siteTitle} />
+        // Helper function to set meta tag
+        const setMetaTag = (name, content, isProperty = false) => {
+            const attribute = isProperty ? 'property' : 'name';
+            let element = document.querySelector(`meta[${attribute}="${name}"]`);
 
-            {/* Twitter */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:url" content={currentUrl} />
-            <meta name="twitter:title" content={fullTitle} />
-            <meta name="twitter:description" content={metaDescription} />
-            <meta name="twitter:image" content={ogImage} />
-            <meta name="twitter:creator" content="@bisbiss" />
+            if (!element) {
+                element = document.createElement('meta');
+                element.setAttribute(attribute, name);
+                document.head.appendChild(element);
+            }
 
-            {/* Additional Meta Tags */}
-            <meta name="robots" content="index, follow" />
-            <meta name="language" content="English" />
-            <meta name="revisit-after" content="7 days" />
-        </Helmet>
-    );
+            element.setAttribute('content', content);
+        };
+
+        // Set primary meta tags
+        setMetaTag('title', fullTitle);
+        setMetaTag('description', metaDescription);
+        setMetaTag('keywords', metaKeywords);
+        setMetaTag('author', author);
+
+        // Set Open Graph tags
+        setMetaTag('og:type', type, true);
+        setMetaTag('og:url', currentUrl, true);
+        setMetaTag('og:title', fullTitle, true);
+        setMetaTag('og:description', metaDescription, true);
+        setMetaTag('og:image', ogImage, true);
+        setMetaTag('og:site_name', siteTitle, true);
+
+        // Set Twitter Card tags
+        setMetaTag('twitter:card', 'summary_large_image');
+        setMetaTag('twitter:url', currentUrl);
+        setMetaTag('twitter:title', fullTitle);
+        setMetaTag('twitter:description', metaDescription);
+        setMetaTag('twitter:image', ogImage);
+        setMetaTag('twitter:creator', '@bisbiss');
+
+        // Set additional meta tags
+        setMetaTag('robots', 'index, follow');
+        setMetaTag('language', 'English');
+        setMetaTag('revisit-after', '7 days');
+
+        // Set canonical link
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
+        }
+        canonical.setAttribute('href', currentUrl);
+
+    }, [title, description, keywords, image, url, type, author]);
+
+    return null;
 };
 
 export default SEO;

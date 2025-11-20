@@ -39,16 +39,16 @@ A modern, feature-rich personal portfolio website built with React, Vite, Tailwi
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework:** React 18
-- **Build Tool:** Vite
-- **Styling:** Tailwind CSS
+- **Frontend Framework:** React 19
+- **Build Tool:** Vite 7
+- **Styling:** Tailwind CSS 3
 - **Database & Auth:** Supabase
-- **Routing:** React Router DOM
+- **Routing:** React Router DOM v7
 - **Animations:** Framer Motion
 - **Forms:** React Hook Form
 - **Markdown:** React Markdown with remark plugins
 - **Icons:** Lucide React
-- **SEO:** React Helmet Async
+- **SEO:** Custom implementation with native DOM API
 
 ## 📦 Installation
 
