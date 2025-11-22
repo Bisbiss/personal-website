@@ -52,7 +52,7 @@ const Articles = () => {
     return (
         <>
             <SEO
-                title="Articles"
+                title="Bisbiss"
                 description="Read my latest articles about web development, programming, and technology. Learn from my experiences and insights."
                 keywords="articles, blog, web development, programming, technology, tutorials, React, JavaScript"
             />

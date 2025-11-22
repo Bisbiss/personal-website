@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import SEO from './components/SEO';
 import Articles from './pages/Articles';
 import ArticleDetail from './pages/ArticleDetail';
+import ProjectsPage from './pages/Projects';
+import ProductsPage from './pages/Products';
 import NotFound from './pages/NotFound';
 
 // Admin Imports
@@ -87,7 +89,7 @@ function App() {
         <Route path="/" element={
           <>
             <SEO
-              title="Home"
+              title="Bisbiss"
               description="Portfolio of Bisri Mustofa, a tech enthusiast and developer specializing in modern web technologies. Explore my projects, articles, and products."
               keywords="Bisri Mustofa, Bisbiss, web developer, portfolio, React, JavaScript, full-stack developer, tech enthusiast"
             />
@@ -100,6 +102,22 @@ function App() {
               <Articles />
               <Contact />
             </main>
+            <Footer />
+          </>
+        } />
+
+        <Route path="/projects" element={
+          <>
+            <Navbar />
+            <ProjectsPage />
+            <Footer />
+          </>
+        } />
+
+        <Route path="/products" element={
+          <>
+            <Navbar />
+            <ProductsPage />
             <Footer />
           </>
         } />

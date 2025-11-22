@@ -16,7 +16,7 @@ const SEO = ({
         const ogImage = image || defaultImage;
 
         // Default values
-        const siteTitle = 'Bisbiss | Bisri Mustofa';
+        const siteTitle = 'Bisri Mustofa';
         const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
         const defaultDescription = 'Portfolio of Bisri Mustofa, a tech enthusiast and developer specializing in modern web technologies.';
         const metaDescription = description || defaultDescription;

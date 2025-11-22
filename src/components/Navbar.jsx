@@ -18,23 +18,37 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleNavClick = (e, href) => {
+    const navItems = [
+        { name: 'About', href: '/#about', type: 'hash' },
+        { name: 'Projects', href: '/projects', type: 'page' },
+        { name: 'Products', href: '/products', type: 'page' },
+        { name: 'Articles', href: '/articles', type: 'page' },
+        { name: 'Contact', href: '/#contact', type: 'hash' },
+    ];
+
+    const handleNavClick = (e, item) => {
         e.preventDefault();
         setIsOpen(false);
 
-        if (location.pathname === '/') {
-            const element = document.querySelector(href);
-            if (element) {
-                const offsetTop = element.offsetTop - 64;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            } else if (href === '#home') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (item.type === 'hash') {
+            const hash = item.href.substring(1); // #about
+            if (location.pathname === '/') {
+                const element = document.querySelector(hash);
+                if (element) {
+                    const offsetTop = element.offsetTop - 64;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    // Update URL without reload
+                    window.history.pushState(null, '', hash);
+                }
+            } else {
+                navigate(item.href);
             }
         } else {
-            navigate(`/${href}`);
+            navigate(item.href);
+            window.scrollTo(0, 0);
         }
     };
 
@@ -60,8 +74,29 @@ const Navbar = () => {
                     {/* Desktop Menu */}
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-center space-x-8">
+                            {navItems.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={(e) => handleNavClick(e, item)}
+                                    className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium transition-colors"
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
                             <ThemeToggle />
                         </div>
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <div className="md:hidden flex items-center gap-4">
+                        <ThemeToggle />
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary focus:outline-none"
+                        >
+                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -76,6 +111,16 @@ const Navbar = () => {
                         className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 overflow-hidden"
                     >
                         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                            {navItems.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={(e) => handleNavClick(e, item)}
+                                    className="block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
                         </div>
                     </motion.div>
                 )}

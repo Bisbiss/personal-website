@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBag, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 
 const Products = () => {
@@ -115,6 +116,12 @@ const Products = () => {
                         ))}
                     </div>
                 )}
+
+                <div className="mt-12 text-center">
+                    <Link to="/products" className="inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4 transition-all">
+                        View All Products <ExternalLink size={16} />
+                    </Link>
+                </div>
             </div>
         </section>
     );

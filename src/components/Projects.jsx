@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 
 const Projects = () => {
@@ -132,6 +133,12 @@ const Projects = () => {
                         ))}
                     </div>
                 )}
+
+                <div className="mt-12 text-center">
+                    <Link to="/projects" className="inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4 transition-all">
+                        View All Projects <ExternalLink size={16} />
+                    </Link>
+                </div>
             </div>
         </section>
     );
