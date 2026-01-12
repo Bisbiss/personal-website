@@ -37,7 +37,7 @@ const ProductsPage = () => {
                 description="Browse my collection of digital products, templates, and resources."
                 keywords="digital products, templates, react themes, developer tools, software assets"
             />
-            <section className="py-20 min-h-screen pt-32 bg-white dark:bg-slate-900 transition-colors duration-300">
+            <section className="py-20 min-h-screen pt-32 section-surface transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

@@ -38,7 +38,7 @@ const ArticleDetail = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-32 flex justify-center transition-colors duration-300">
+            <div className="min-h-screen section-surface pt-32 flex justify-center transition-colors duration-300">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
             </div>
         );
@@ -46,7 +46,7 @@ const ArticleDetail = () => {
 
     if (!article) {
         return (
-            <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-32 px-4 text-center transition-colors duration-300">
+            <div className="min-h-screen section-surface pt-32 px-4 text-center transition-colors duration-300">
                 <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Article Not Found</h1>
                 <p className="text-slate-600 dark:text-slate-400 mb-8">The article you are looking for does not exist.</p>
                 <Link to="/articles" className="text-primary hover:text-primary-hover flex items-center justify-center gap-2">
@@ -65,7 +65,7 @@ const ArticleDetail = () => {
                 image={article.cover_image}
                 type="article"
             />
-            <article className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-32 pb-20 transition-colors duration-300">
+            <article className="min-h-screen section-surface pt-32 pb-20 transition-colors duration-300">
                 {/* Hero / Header */}
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                     <Link to="/articles" className="inline-flex items-center text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary mb-8 transition-colors">

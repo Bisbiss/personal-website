@@ -37,7 +37,7 @@ const About = () => {
     };
 
     return (
-        <section id="about" className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
+        <section id="about" className="py-20 section-surface transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ const About = () => {
                                 <ul className="text-slate-600 dark:text-slate-400 text-sm space-y-1">
                                     {/* Handle both array and string formats for items */}
                                     {(Array.isArray(skill.items) ? skill.items : (skill.items || '').split(',')).map((item) => (
-                                        <li key={item.trim()}>• {item.trim()}</li>
+                                        <li key={item.trim()}>- {item.trim()}</li>
                                     ))}
                                 </ul>
                             </motion.div>

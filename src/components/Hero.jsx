@@ -20,10 +20,12 @@ const Hero = () => {
     };
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 transition-colors duration-300">
             {/* Background Grid */}
             <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-10 pointer-events-none"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-50 dark:to-slate-950 pointer-events-none"></div>
+            <div className="absolute -top-24 right-[-6rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(15,118,110,0.35),transparent_60%)] blur-3xl opacity-70 animate-pulse-slow pointer-events-none"></div>
+            <div className="absolute bottom-[-6rem] left-[-4rem] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.3),transparent_60%)] blur-3xl opacity-70 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                 <motion.div
@@ -43,7 +45,7 @@ const Hero = () => {
                         </div>
                     )}
 
-                    <h2 className="text-primary font-mono text-lg mb-4">Hello, World!</h2>
+                    <h2 className="text-primary font-mono text-sm uppercase tracking-[0.3em] mb-4">Hello, World!</h2>
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white">
                         I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                             {profile?.full_name || 'Bisbiss'}

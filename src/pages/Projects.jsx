@@ -41,7 +41,7 @@ const ProjectsPage = () => {
                 description="Explore my portfolio of projects, ranging from web applications to open source contributions."
                 keywords="projects, portfolio, web development, software engineering, react, javascript"
             />
-            <section className="py-20 min-h-screen pt-32 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+            <section className="py-20 min-h-screen pt-32 section-surface transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

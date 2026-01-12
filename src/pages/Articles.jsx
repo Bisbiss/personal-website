@@ -56,7 +56,7 @@ const Articles = () => {
                 description="Read my latest articles about web development, programming, and technology. Learn from my experiences and insights."
                 keywords="articles, blog, web development, programming, technology, tutorials, React, JavaScript"
             />
-            <section id="articles" className="py-20 min-h-screen pt-32 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+            <section id="articles" className="py-20 min-h-screen pt-32 section-surface transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

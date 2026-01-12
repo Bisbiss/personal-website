@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Space Grotesk', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
       },
       colors: {
         slate: {
@@ -18,13 +18,13 @@ export default {
           950: '#020617',
         },
         primary: {
-          DEFAULT: '#06b6d4', // Cyan-500
-          hover: '#0891b2', // Cyan-600
-          glow: 'rgba(6, 182, 212, 0.5)',
+          DEFAULT: '#0f766e', // Teal-700
+          hover: '#115e59', // Teal-800
+          glow: 'rgba(15, 118, 110, 0.45)',
         },
         secondary: {
-          DEFAULT: '#8b5cf6', // Violet-500
-          hover: '#7c3aed', // Violet-600
+          DEFAULT: '#f97316', // Orange-500
+          hover: '#ea580c', // Orange-600
         },
       },
       animation: {
