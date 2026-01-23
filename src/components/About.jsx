@@ -46,8 +46,7 @@ const About = () => {
                     transition={{ duration: 0.5 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white"><span className="text-primary">01.</span> About Me</h2>
-                    <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white">About Me</h2>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -83,9 +82,9 @@ const About = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                                className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors shadow-sm dark:shadow-none"
+                                className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transition-colors shadow-sm"
                             >
-                                <div className="text-primary mb-4">{getIconForCategory(skill.category)}</div>
+                                <div className="text-slate-900 dark:text-white mb-4">{getIconForCategory(skill.category)}</div>
                                 <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">{skill.category}</h3>
                                 <ul className="text-slate-600 dark:text-slate-400 text-sm space-y-1">
                                     {/* Handle both array and string formats for items */}
