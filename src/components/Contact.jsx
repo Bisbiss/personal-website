@@ -115,6 +115,20 @@ const Contact = () => {
 
             if (error) throw error;
 
+            try {
+                await fetch('https://bot-n8n.ylb4t6.easypanel.host/webhook/eb409cdf-130f-4442-8a6f-23928b057c5a', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: formData.name,
+                        email: formData.email,
+                        message: formData.message
+                    }),
+                });
+            } catch (webhookError) {
+                console.error('Webhook error:', webhookError);
+            }
+
             setStatus({
                 type: 'success',
                 message: 'Message sent successfully! I\'ll get back to you soon.'
@@ -286,8 +300,8 @@ const Contact = () => {
                             {/* Status Messages */}
                             {status.message && (
                                 <div className={`flex items-center gap-2 p-4 rounded-lg ${status.type === 'success' ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400' :
-                                        status.type === 'error' ? 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400' :
-                                            'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400'
+                                    status.type === 'error' ? 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400' :
+                                        'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400'
                                     }`}>
                                     {status.type === 'success' && <CheckCircle size={20} />}
                                     {status.type === 'error' && <AlertCircle size={20} />}
