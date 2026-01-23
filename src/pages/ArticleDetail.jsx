@@ -60,7 +60,7 @@ const ArticleDetail = () => {
         <>
             <SEO
                 title={article.title}
-                description={article.excerpt || article.content?.substring(0, 160)}
+                description={article.excerpt}
                 keywords={`${article.title}, article, blog, web development, ${article.tags || ''}`}
                 image={article.cover_image}
                 type="article"
