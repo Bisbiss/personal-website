@@ -47,20 +47,21 @@ const ContactMessages = () => {
     };
 
     const deleteMessage = async (id) => {
-        if (!confirm('Are you sure you want to delete this message?')) return;
+        if (!window.confirm('Are you sure you want to delete this message?')) return;
 
         try {
+            setMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== id));
+            setSelectedMessage((prevSelected) => (prevSelected?.id === id ? null : prevSelected));
+
             const { error } = await supabase
                 .from('contact_messages')
                 .delete()
                 .eq('id', id);
 
             if (error) throw error;
-
-            setMessages(messages.filter(msg => msg.id !== id));
-            if (selectedMessage?.id === id) setSelectedMessage(null);
         } catch (error) {
             console.error('Error deleting message:', error);
+            fetchMessages();
         }
     };
 

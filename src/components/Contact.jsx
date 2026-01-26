@@ -123,7 +123,7 @@ const Contact = () => {
 
 			try {
 				await fetch(
-					"n8n.bosbiss.my.id/webhook/eb409cdf-130f-4442-8a6f-23928b057c5a",
+					"https://n8n.bosbiss.my.id/webhook/eb409cdf-130f-4442-8a6f-23928b057c5a",
 					{
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
